@@ -2,12 +2,15 @@ package com.marcuspereira.churrascometro
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
+
+const val KEY_MAIN_ACTIVITY = "MainActivity.Key"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,28 +29,54 @@ class MainActivity : AppCompatActivity() {
         val btnCalcular = findViewById<Button>(R.id.btn_Calcular)
 
         btnCalcular.setOnClickListener {
-            val qtdAdultosD : Double = qtdAdultos.toString().toDouble()
-            val qtdCriancasD : Double = qtdCriancas.toString().toDouble()
-            val duracaoD : Double = duracao.toString().toDouble()
-            var qtdCarne: Double = 0.0
-            var qtdRefrigerante: Double = 0.0
-            var qtdCerveja: Double = 0.0
+            val qtdAdultosText = qtdAdultos.text?.toString()
+            val qtdCriancasText = qtdCriancas.text?.toString()
+            val duracaoText = duracao.text?.toString()
 
-            if(duracaoD < 4) {
-                qtdCarne = (qtdAdultosD * 0.4) + (qtdCriancasD * 0.2)
-                qtdCerveja = qtdAdultosD * 1.5
-                qtdRefrigerante = (qtdAdultosD * 0.5) + (qtdCriancasD * 0.4)
-            } else {
-                qtdCarne = ((qtdAdultosD * 0.4) + (qtdCriancasD * 0.2)) * 1.2
-                qtdCerveja = (qtdAdultosD * 1.5) + 2
-                qtdRefrigerante = ((qtdAdultosD * 0.5) + (qtdCriancasD * 0.4)) * 2
+            if (qtdAdultosText.isNullOrEmpty()) {
+                qtdAdultos.error = "Preencha este campo"
+                return@setOnClickListener
             }
 
-            val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra(KEY_RESULT_ACTIVITY, qtdCarne)
-            intent.putExtra("QTDCERVEJA", qtdCerveja)
-            intent.putExtra("QTDREFRIGERANTE", qtdRefrigerante)
-            startActivity(intent)
+            if (qtdCriancasText.isNullOrEmpty()) {
+                qtdCriancas.error = "Preencha este campo"
+                return@setOnClickListener
+            }
+
+            if (duracaoText.isNullOrEmpty()) {
+                duracao.error = "Preencha este campo"
+                return@setOnClickListener
+            }
+
+            try {
+                val qtdAdultosD = qtdAdultosText.toFloat()
+                val qtdCriancasD = qtdCriancasText.toFloat()
+                val duracaoD = duracaoText.toFloat()
+
+                var qtdCarne: Float = 0.0F
+                var qtdRefrigerante: Float = 0.0F
+                var qtdCerveja: Float = 0.0F
+
+                if (duracaoD < 4) {
+                    qtdCarne = (qtdAdultosD * 0.4F) + (qtdCriancasD * 0.2F)
+                    qtdCerveja = qtdAdultosD * 1.5F
+                    qtdRefrigerante = (qtdAdultosD * 0.2F) + (qtdCriancasD * 0.6F)
+                } else {
+                    qtdCarne = ((qtdAdultosD * 0.4F) + (qtdCriancasD * 0.2F)) * 1.2F
+                    qtdCerveja = (qtdAdultosD * 1.5F) + 2F
+                    qtdRefrigerante = ((qtdAdultosD * 0.2F) + (qtdCriancasD * 0.6F)) * 2F
+                }
+
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_ACTIVITY, qtdCarne)
+                intent.putExtra("QTDCERVEJA", qtdCerveja)
+                intent.putExtra("QTDREFRIGERANTE", qtdRefrigerante)
+                startActivity(intent)
+
+            } catch (e: Exception) {
+                Log.e("Erro", "Erro ao calcular: ${e.message}")
+            }
         }
     }
 }

@@ -3,8 +3,97 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
+    <ImageView
+        android:id="@+id/rounded_bg"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/rounded_bg"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="CHURRASCÔMETRO"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_QtdCarne"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="35dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:drawablePadding="9dp"
+        android:drawableStart="@drawable/meat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/beige"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rounded_bg"
+        tools:text="Quantidade de carne (KG): 6.500" />
+
+    <TextView
+        android:id="@+id/tv_QtdCerveja"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="35dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:drawablePadding="9dp"
+        android:drawableStart="@drawable/beer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/beige"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_QtdCarne"
+        tools:text="Quantidade de cerveja (Litros): 5" />
+
+    <TextView
+        android:id="@+id/tv_QtdRefri"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="35dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:drawablePadding="9dp"
+        android:drawableStart="@drawable/soda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/beige"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_QtdCerveja"
+        tools:text="Quantidade de refrigerante (Litros): 5" />
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/grill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_QtdRefri"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_NovoCalculo"
+        android:background="@drawable/button_custom"
+        android:text="realizar novo cálculo"
+        android:textColor="@color/beige"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
