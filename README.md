@@ -1,17 +1,31 @@
 ## Churrascômetro
-Esse projeto é um aplicativo Android nativo desenvolvido com a linguagem de programação Kotlin, sua principal finalidade é fazer o cálculo de quanto o usuário deve comprar de carne, cerveja e refrigerante em seu churrasco. Foi levado em consideração que,
-em um churrasco de até 3 horas um adulto irá consumir: 400g de carne, 1.5l de cerveja e 200ml de refrigerante. Uma criança em um churrasco de até 3 horas irá consumir: 200g de carne e 600ml de refrigerante. Caso o churrasco tenha uma duração de 4 para mais,
-o valor total de quantidade de carne é adicionado 20% 
+Esse projeto é um aplicativo Android nativo desenvolvido com a linguagem de programação Kotlin, sua principal finalidade é fazer o cálculo de quanto o usuário deve comprar de carne, cerveja e refrigerante em seu churrasco.
+
+O cálculo considera os seguintes parâmetros:
+- Duração de até 3 horas:
+  - Um adulto consome, em média:
+      - 400g de carne
+      - 1,5 litros de cerveja
+      - 500ml de refrigerante
+  - Uma criança consome, em média:
+      - 200g de carne
+      - 400ml de refrigerante
+- Duração superior a 3 horas:
+  - O consumo total de carne aumenta em 20%.
+  - O consumo de cerveja por adulto sobe para 2 litros.
+    
+Este aplicativo foi desenvolvido com foco em simplicidade e eficiência, proporcionando aos usuários uma ferramenta prática para planejar eventos e evitar desperdícios.
 
 
 ## 🚀 Funcionalidades
-
+- **Cálculo de consumo por evento:** Calcula a quantidade ideal de carne, cerveja e refrigerante com base no número de adultos e crianças e na duração do churrasco.
+- **Interface amigável e intuitiva:** Design simples para facilitar o uso, mesmo para usuários sem experiência com tecnologia.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
 <img src="https://github.com/user-attachments/assets/e964ef22-69c0-4835-b457-6e9c66a8e823" width=200/>
 <img src="https://github.com/user-attachments/assets/7c0e027e-757f-4810-887c-cfd92a6e9f53" width=200/>
-<img src="https://github.com/user-attachments/assets/1e0dae43-529d-4c81-8ad0-02828b29d196" width=200/>
+<img src="https://github.com/user-attachments/assets/564a30b3-cb60-4697-807d-f45dde551ba5" width=200/>
 
 
 
