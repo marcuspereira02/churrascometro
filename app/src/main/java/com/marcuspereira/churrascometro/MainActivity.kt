@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
                     qtdRefrigerante = (qtdAdultosD * 0.2F) + (qtdCriancasD * 0.6F)
                 } else {
                     qtdCarne = ((qtdAdultosD * 0.4F) + (qtdCriancasD * 0.2F)) * 1.2F
-                    qtdCerveja = (qtdAdultosD * 1.5F) + 2F
-                    qtdRefrigerante = ((qtdAdultosD * 0.2F) + (qtdCriancasD * 0.6F)) * 2F
+                    qtdCerveja = qtdAdultosD * 2F
+                    qtdRefrigerante = (qtdAdultosD * 0.5F) + (qtdCriancasD * 0.4F)
                 }
 
 
