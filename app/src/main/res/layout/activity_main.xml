@@ -12,10 +12,10 @@
         android:id="@+id/rounded_bg"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:src="@drawable/rounded_bg"/>
+        android:src="@drawable/rounded_bg" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -27,105 +27,147 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Descubra a quantidade ideal de carne, cerveja e refrigerante para seu churrasco!"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rounded_bg" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInput1"
+        android:id="@+id/til_num_adults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rounded_bg">
+        app:layout_constraintTop_toBottomOf="@id/tv_description">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_QtdAdultos"
-            android:background="@drawable/custom_input"
+            android:id="@+id/tie_num_adults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
             android:drawableStart="@drawable/adult"
-            android:drawablePadding="20dp"
+            android:drawablePadding="16dp"
             android:hint="Quantidade de adultos"
-            android:textColor="@color/beige"
             android:inputType="number"
             android:maxLength="4"
-            android:textColorHint="@color/beige" />
+            android:textColor="@color/beige"
+            android:textColorHint="@color/beige"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInput2"
+        android:id="@+id/til_num_kid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:boxStrokeColor="@color/beige"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput1">
+        app:layout_constraintTop_toBottomOf="@id/til_num_adults">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_QtdCriancas"
-            android:background="@drawable/custom_input"
+            android:id="@+id/tie_num_kid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
             android:drawableStart="@drawable/kid"
-            android:drawablePadding="20dp"
+            android:drawablePadding="16dp"
             android:hint="Quantidade de crianças"
-            android:textColor="@color/beige"
             android:inputType="number"
             android:maxLength="4"
-            android:textColorHint="@color/beige" />
+            android:textColor="@color/beige"
+            android:textColorHint="@color/beige"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInput3"
+        android:id="@+id/til_duration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:boxStrokeColor="@color/beige"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput2">
+        app:layout_constraintTop_toBottomOf="@id/til_num_kid">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ti_Duracao"
-        android:background="@drawable/custom_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/clock"
-        android:drawablePadding="20dp"
-        android:hint="Duração do churrasco (em horas)"
-        android:textColor="@color/beige"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textColorHint="@color/beige" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/clock"
+            android:drawablePadding="16dp"
+            android:hint="Duração do churrasco (em horas)"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="@color/beige"
+            android:textColorHint="@color/beige"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="45dp"
+        android:id="@+id/img_grill"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="80dp"
         android:src="@drawable/grill"
+        app:layout_constraintBottom_toTopOf="@id/btn_calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput3"/>
+        app:layout_constraintTop_toBottomOf="@id/til_duration" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_Calcular"
-        android:background="@drawable/button_custom"
-        android:text="Calcular"
-        android:textColor="@color/beige"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/btn_clean"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="LIMPAR"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:text="CALCULAR"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
