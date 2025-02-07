@@ -15,7 +15,7 @@
         android:src="@drawable/rounded_bg"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -28,71 +28,84 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_QtdCarne"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="35dp"
+        android:id="@+id/tv_description_summary"
+        android:layout_width="0dp"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Tudo calculado! Agora é só comprar os ingredientes e aproveitar o churrasco!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rounded_bg" />
+
+    <TextView
+        android:id="@+id/tv_amount_meat"
+        android:layout_marginTop="56dp"
+        android:layout_marginStart="16dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:drawablePadding="9dp"
+        android:drawablePadding="8dp"
         android:drawableStart="@drawable/meat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/beige"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rounded_bg"
+        app:layout_constraintTop_toBottomOf="@id/tv_description_summary"
         tools:text="Quantidade de carne (KG): 6.500" />
 
     <TextView
-        android:id="@+id/tv_QtdCerveja"
+        android:id="@+id/tv_amount_beer"
         android:layout_marginTop="40dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="16dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:drawablePadding="9dp"
+        android:drawablePadding="8dp"
         android:drawableStart="@drawable/beer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/beige"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_QtdCarne"
+        app:layout_constraintTop_toBottomOf="@id/tv_amount_meat"
         tools:text="Quantidade de cerveja (Litros): 5" />
 
     <TextView
-        android:id="@+id/tv_QtdRefri"
+        android:id="@+id/tv_amount_refrigerant"
         android:layout_marginTop="40dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="16dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:drawablePadding="9dp"
+        android:drawablePadding="8dp"
         android:drawableStart="@drawable/soda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/beige"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_QtdCerveja"
+        app:layout_constraintTop_toBottomOf="@id/tv_amount_beer"
         tools:text="Quantidade de refrigerante (Litros): 5" />
 
-
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/grill"
+        android:id="@+id/img_grill_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="80dp"
+        android:src="@drawable/family"
+        app:layout_constraintBottom_toTopOf="@id/btn_refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_QtdRefri"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_amount_refrigerant" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_NovoCalculo"
-        android:background="@drawable/button_custom"
-        android:text="realizar novo cálculo"
-        android:textColor="@color/beige"
+    <Button
+        android:id="@+id/btn_refresh"
+        android:backgroundTint="@color/white"
+        android:text="NOVO CÁLCULO"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

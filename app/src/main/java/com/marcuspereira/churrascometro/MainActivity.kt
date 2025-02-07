@@ -3,16 +3,17 @@ package com.marcuspereira.churrascometro
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.textfield.TextInputEditText
+import com.marcuspereira.churrascometro.databinding.ActivityMainBinding
 
-const val KEY_MAIN_ACTIVITY = "MainActivity.Key"
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,60 +24,67 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val qtdAdultos = findViewById<TextInputEditText>(R.id.ti_QtdAdultos)
-        val qtdCriancas = findViewById<TextInputEditText>(R.id.ti_QtdCriancas)
-        val duracao = findViewById<TextInputEditText>(R.id.ti_Duracao)
-        val btnCalcular = findViewById<Button>(R.id.btn_Calcular)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btnCalcular.setOnClickListener {
-            val qtdAdultosText = qtdAdultos.text?.toString()
-            val qtdCriancasText = qtdCriancas.text?.toString()
-            val duracaoText = duracao.text?.toString()
+        binding.btnCalculate.setOnClickListener {
 
-            if (qtdAdultosText.isNullOrEmpty()) {
-                qtdAdultos.error = "Preencha este campo"
+            if (binding.tieNumAdults.text.isNullOrEmpty()) {
+                binding.tieNumAdults.error = "Preencha este campo"
                 return@setOnClickListener
             }
 
-            if (qtdCriancasText.isNullOrEmpty()) {
-                qtdCriancas.error = "Preencha este campo"
+            if (binding.tieNumKid.text.isNullOrEmpty()) {
+                binding.tieNumKid.error = "Preencha este campo"
                 return@setOnClickListener
             }
 
-            if (duracaoText.isNullOrEmpty()) {
-                duracao.error = "Preencha este campo"
+            if (binding.tieDuration.text.isNullOrEmpty()) {
+                binding.tieDuration.error = "Preencha este campo"
                 return@setOnClickListener
             }
 
             try {
-                val qtdAdultosD = qtdAdultosText.toFloat()
-                val qtdCriancasD = qtdCriancasText.toFloat()
-                val duracaoD = duracaoText.toFloat()
+                val numAdults = binding.tieNumAdults.text.toString().toFloat()
+                val numKids = binding.tieNumKid.text.toString().toFloat()
+                val duration = binding.tieDuration.text.toString().toFloat()
 
-                var qtdCarne: Float = 0.0F
-                var qtdRefrigerante: Float = 0.0F
-                var qtdCerveja: Float = 0.0F
+                var amountMeat: Float = 0.0F
+                var amountRefrigerant: Float = 0.0F
+                var amountBeer: Float = 0.0F
 
-                if (duracaoD < 4) {
-                    qtdCarne = (qtdAdultosD * 0.4F) + (qtdCriancasD * 0.2F)
-                    qtdCerveja = qtdAdultosD * 1.5F
-                    qtdRefrigerante = (qtdAdultosD * 0.5F) + (qtdCriancasD * 0.4F)
+                if (duration < 4) {
+                    amountMeat = (numAdults * 0.4F) + (numKids * 0.2F)
+                    amountBeer = numAdults * 1.5F
+                    amountRefrigerant = (numAdults * 0.5F) + (numKids * 0.4F)
                 } else {
-                    qtdCarne = ((qtdAdultosD * 0.4F) + (qtdCriancasD * 0.2F)) * 1.2F
-                    qtdCerveja = qtdAdultosD * 2F
-                    qtdRefrigerante = (qtdAdultosD * 0.5F) + (qtdCriancasD * 0.4F)
+                    amountMeat = ((numAdults * 0.4F) + (numKids * 0.2F)) * 1.2F
+                    amountBeer = numAdults * 2F
+                    amountRefrigerant = (numAdults * 0.5F) + (numKids * 0.4F)
                 }
 
-
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra(KEY_RESULT_ACTIVITY, qtdCarne)
-                intent.putExtra("QTDCERVEJA", qtdCerveja)
-                intent.putExtra("QTDREFRIGERANTE", qtdRefrigerante)
+                intent.apply{
+                    intent.putExtra("amountMeat", amountMeat)
+                    intent.putExtra("amountBeer", amountBeer)
+                    intent.putExtra("amountRefrigerant", amountRefrigerant)
+                }
+                clean()
                 startActivity(intent)
 
             } catch (e: Exception) {
                 Log.e("Erro", "Erro ao calcular: ${e.message}")
             }
+
+            binding.btnClean.setOnClickListener {
+                clean()
+            }
         }
+    }
+
+    private fun clean(){
+        binding.tieDuration.setText("")
+        binding.tieNumKid.setText("")
+        binding.tieNumAdults.setText("")
     }
 }
