@@ -23,9 +23,11 @@ Este aplicativo foi desenvolvido com foco em simplicidade e eficiência, proporc
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
-<img src="https://github.com/user-attachments/assets/e964ef22-69c0-4835-b457-6e9c66a8e823" width=200/>
-<img src="https://github.com/user-attachments/assets/7c0e027e-757f-4810-887c-cfd92a6e9f53" width=200/>
-<img src="https://github.com/user-attachments/assets/564a30b3-cb60-4697-807d-f45dde551ba5" width=200/>
+<img src="https://github.com/user-attachments/assets/a3e3481e-0f7e-4273-8ac1-05cec19974fb" width=200/>
+<img src="https://github.com/user-attachments/assets/3b2603bb-d0f5-4f8d-8966-fbb6b9c6243c" width=200/>
+<img src="https://github.com/user-attachments/assets/8f0ebd93-25fa-4b96-a829-3140d0de8ff0" width=200/>
+
+
 
 
 
